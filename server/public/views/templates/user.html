@@ -1,0 +1,21 @@
+<div ng-include="'views/partials/nav.html'"></div>
+<div class="container">
+
+    <h1 id="welcome" class="lead">Welcome, {{vm.userObject.userName}}!</h1>
+    <p>Start Weight: {{vm.userObject.startWeight}}</p>
+    <p>Goal Weight: {{vm.userObject.goalWeight}}</p>
+    <p>{{vm.userObject.startWeight - vm.userObject.goalWeight}} pounds to go!</p>
+
+    <div>
+        <label>Adjust start weight: </label>
+        <input type="number" placeholder="{{vm.userObject.startWeight}}" ng-model="vm.newStartWeight">
+        <button ng-click="vm.adjustWeight(vm.newStartWeight, 'start_weight')">Save</button>       
+    </div>
+    <div>
+        <label>Adjust goal weight: </label>
+        <input type="number" placeholder="{{vm.userObject.goalWeight}}" ng-model="vm.newGoalWeight">
+        <button ng-click="vm.adjustWeight(vm.newGoalWeight, 'goal_weight')">Save</button>
+    </div>
+    
+    <button class="btn btn-default" ng-click="vm.userService.logout()">Log Out</button>
+</div>
